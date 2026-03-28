@@ -37,7 +37,9 @@ export const placeStone = (state: GameState, pos: Point): MoveResult => {
   let nextBoard = setStone(state.board, pos, state.turn)
   const capturedGroups = findCapturedGroups(nextBoard, state.turn)
 
-  const newCaptures = { ...state.captures }
+  const newCaptures: { [K in typeof StoneColor.BLACK | typeof StoneColor.WHITE]: number } = {
+    ...state.captures,
+  }
   if (capturedGroups.length > 0) {
     nextBoard = removeGroups(nextBoard, capturedGroups)
     const capturedCount = capturedGroups.reduce((acc, g) => acc + g.stones.length, 0)
