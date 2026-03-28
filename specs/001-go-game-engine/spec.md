@@ -71,13 +71,13 @@ As a player, I want to be able to pass my turn and have the game end when both p
 
 - **Capture on the edge/corner**: Stones on the edge have only 3 liberties; corner stones have 2. Capture logic must correctly handle these boundaries.
 - **Simultaneous Capture and Suicide**: If a move would have 0 liberties but also reduces an enemy group to 0 liberties, the capture happens first, and the move is legal (Suicide rule exception).
-- **19x19 Boundary**: Moves outside (1,1) to (19,19) must be rejected.
+- **Boundary Validation**: Moves outside the selected grid dimensions (e.g., (1,1) to (N,N)) must be rejected.
 
 ## Requirements *(mandatory)*
 
 ### Functional Requirements
 
-- **FR-001**: System MUST maintain a 19x19 grid representation of the board.
+- **FR-001**: System MUST support configurable grid sizes (9x9, 13x13, and 19x19).
 - **FR-002**: System MUST track the current player's turn (Black starts).
 - **FR-003**: System MUST track the number of captured stones for both Black and White.
 - **FR-004**: System MUST identify "groups" of connected stones of the same color (orthogonally adjacent).
@@ -87,15 +87,18 @@ As a player, I want to be able to pass my turn and have the game end when both p
 - **FR-008**: System MUST prevent moves that violate the "Ko" rule (returning board to the state exactly 1 move prior).
 - **FR-009**: System MUST allow a player to "Pass" their turn.
 - **FR-010**: System MUST terminate the game after two consecutive passes.
+- **FR-011**: System MUST support "Undo" functionality to revert to the previous board state and turn.
+- **FR-012**: System MUST track the last move's position for visual marking.
+- **FR-013**: System MUST provide the number of liberties for each stone/group for UI display.
 
 ### Key Entities *(include if feature involves data)*
 
-- **Board**: A 19x19 grid containing Intersections.
+- **Board**: A configurable grid (9x9, 13x13, or 19x19) containing Intersections.
 - **Intersection**: A point on the grid that can be Empty, or occupied by a Black Stone or a White Stone.
 - **Stone**: A game piece placed by a player.
 - **Group**: A set of one or more stones of the same color connected orthogonally.
 - **Liberty**: An empty intersection adjacent to a stone or group.
-- **Game State**: Includes the board configuration, current turn, capture counts, and pass history.
+- **Game State**: Includes the board configuration, current turn, capture counts, pass history, and **Move History (for Undo)**.
 
 ## Success Criteria *(mandatory)*
 
@@ -105,10 +108,28 @@ As a player, I want to be able to pass my turn and have the game end when both p
 - **SC-002**: Move validation and board state update (including capture detection) must complete in under 50ms per move.
 - **SC-003**: System accurately tracks and displays capture counts for both players throughout the game.
 - **SC-004**: Game correctly identifies end-of-game state upon two consecutive passes.
+- **SC-005**: Undo functionality correctly restores the exact board state, turn, and capture counts of the previous move.
+
+## Constraints & Tradeoffs
+
+- **Frontend Only**: The application is a static site (SPA) intended for GitHub Pages. No backend API or database.
+- **Local Interaction**: Two players share the same screen and input device.
+- **Client-Side Engine**: All Go logic (capture, Ko, etc.) must run in the browser.
+- **In-Memory State**: Game state is not persisted across page reloads; refreshing the browser resets the game.
+
+## Clarifications
+
+### Session 2026-03-28
+- Q: Which Go rule set should be implemented? (Japanese, Chinese, or Custom) → A: Japanese Rules
+- Q: What is the system architecture? → A: Frontend-only static site on GitHub Pages; local two-player interaction.
+- Q: Should the engine support "Undo" functionality? → A: Yes, support Undo to revert to the previous board state and turn.
+- Q: Should the game state persist across page reloads? → A: No, state is stored in memory only; refreshing resets the game.
+- Q: Should the board size be configurable? → A: Yes, support 9x9, 13x13, and 19x19 sizes.
+- Q: Should the engine provide data for visual aids (last move, liberties)? → A: Yes, provide both last move position and liberty counts.
 
 ## Assumptions
 
 - **Local Play**: Both players are interacting with the same instance of the engine (no networking specified for this version).
-- **Standard Rules**: Using standard Go rules (likely Japanese or Chinese, though capture/liberty logic is largely identical).
+- **Japanese Rules**: The game follows Japanese Go rules, focusing on the "Simple Ko" rule and preparing for "Territory" counting in future phases.
 - **No Scoring**: Manual scoring or a separate feature will handle territory counting; this engine focuses on the game mechanics and state.
 - **UI Independence**: The engine logic will be separate from the rendering logic (as per the Constitution).
