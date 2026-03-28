@@ -1,8 +1,10 @@
-export enum StoneColor {
-  BLACK = 'BLACK',
-  WHITE = 'WHITE',
-  NONE = 'NONE',
-}
+export const StoneColor = {
+  BLACK: 'BLACK',
+  WHITE: 'WHITE',
+  NONE: 'NONE',
+} as const
+
+export type StoneColor = (typeof StoneColor)[keyof typeof StoneColor]
 
 export interface Point {
   x: number
@@ -22,7 +24,7 @@ export interface Board {
 
 export interface GameState {
   board: Board
-  turn: StoneColor
+  turn: typeof StoneColor.BLACK | typeof StoneColor.WHITE
   captures: {
     [StoneColor.BLACK]: number
     [StoneColor.WHITE]: number
