@@ -63,16 +63,16 @@
 
 ### Tests for User Story 2 (TDD)
 
-- [ ] T014 [P] [US2] Unit test for group detection and liberty counting in `tests/unit/rules.test.ts`
-- [ ] T015 [P] [US2] Unit test for capture detection and board removal in `tests/unit/rules.test.ts`
+- [X] T014 [P] [US2] Unit test for group detection and liberty counting in `tests/unit/rules.test.ts`
+- [X] T015 [P] [US2] Unit test for capture detection and board removal in `tests/unit/rules.test.ts`
 
 ### Implementation for User Story 2
 
-- [ ] T016 [US2] Implement group detection and liberty counting logic in `src/core/rules/liberties.ts`
-- [ ] T017 [US2] Implement capture logic and capture count updates in `src/core/rules/capture.ts`
-- [ ] T018 [US2] Integrate capture logic into the `placeStone` function in `src/core/engine.ts`
-- [ ] T019 [US2] Update `Status` component to display capture counts for both players in `src/components/Status/Status.tsx`
-- [ ] T020 [P] [US2] Implement `getLiberties` function for future UI hints in `src/core/engine.ts`
+- [X] T016 [US2] Implement group detection and liberty counting logic in `src/core/rules/liberties.ts`
+- [X] T017 [US2] Implement capture logic and capture count updates in `src/core/rules/capture.ts`
+- [X] T018 [US2] Integrate capture logic into the `placeStone` function in `src/core/engine.ts`
+- [X] T019 [US2] Update `Status` component to display capture counts for both players in `src/components/Status/Status.tsx`
+- [X] T020 [P] [US2] Implement `getLiberties` function for future UI hints in `src/core/engine.ts`
 
 **Checkpoint**: Core Mechanic Ready - Capture logic is functional and integrated.
 
@@ -86,17 +86,17 @@
 
 ### Tests for User Story 3 (TDD)
 
-- [ ] T021 [P] [US3] Unit test for Suicide rule enforcement (including exception for capture) in `tests/unit/rules.test.ts`
-- [ ] T022 [P] [US3] Unit test for Ko rule enforcement using board history in `tests/unit/rules.test.ts`
-- [ ] T023 [P] [US3] Unit test for `undoMove` functionality in `tests/unit/engine.test.ts`
+- [X] T021 [P] [US3] Unit test for Suicide rule enforcement (including exception for capture) in `tests/unit/rules.test.ts`
+- [X] T022 [P] [US3] Unit test for Ko rule enforcement using board history in `tests/unit/rules.test.ts`
+- [X] T023 [P] [US3] Unit test for `undoMove` functionality in `tests/unit/engine.test.ts`
 
 ### Implementation for User Story 3
 
-- [ ] T024 [US3] Implement Suicide rule logic in `src/core/rules/suicide.ts`
-- [ ] T025 [US3] Implement Ko rule logic by comparing board states in history in `src/core/rules/ko.ts`
-- [ ] T026 [US3] Implement `undoMove` logic (popping history stack) in `src/core/engine.ts`
-- [ ] T027 [US3] Create `Controls` component with an "Undo" button in `src/components/Controls/Controls.tsx`
-- [ ] T028 [US3] Integrate `undoMove` into the `useGame` hook in `src/hooks/useGame.ts`
+- [X] T024 [US3] Implement Suicide rule logic in `src/core/rules/suicide.ts`
+- [X] T025 [US3] Implement Ko rule logic by comparing board states in history in `src/core/rules/ko.ts`
+- [X] T026 [US3] Implement `undoMove` logic (popping history stack) in `src/core/engine.ts`
+- [X] T027 [US3] Create `Controls` component with an "Undo" button in `src/components/Controls/Controls.tsx`
+- [X] T028 [US3] Integrate `undoMove` into the `useGame` hook in `src/hooks/useGame.ts`
 
 **Checkpoint**: Rule Integrity Ready - All core Go rules are enforced and Undo is functional.
 
@@ -110,13 +110,13 @@
 
 ### Tests for User Story 4 (TDD)
 
-- [ ] T029 [P] [US4] Unit test for consecutive passes and game termination in `tests/unit/engine.test.ts`
+- [X] T029 [P] [US4] Unit test for consecutive passes and game termination in `tests/unit/engine.test.ts`
 
 ### Implementation for User Story 4
 
-- [ ] T030 [US4] Implement `passTurn` logic and game end detection in `src/core/engine.ts`
-- [ ] T031 [US4] Add "Pass" button to the `Controls` component in `src/components/Controls/Controls.tsx`
-- [ ] T032 [US4] Update `Status` component to show "Game Over" and final results in `src/components/Status/Status.tsx`
+- [X] T030 [US4] Implement `passTurn` logic and game end detection in `src/core/engine.ts`
+- [X] T031 [US4] Add "Pass" button to the `Controls` component in `src/components/Controls/Controls.tsx`
+- [X] T032 [US4] Update `Status` component to show "Game Over" and final results in `src/components/Status/Status.tsx`
 
 **Checkpoint**: Full Lifecycle Ready - Game can be started, played to completion, and terminated correctly.
 
@@ -126,10 +126,10 @@
 
 **Purpose**: Improvements that affect multiple user stories
 
-- [ ] T033 [P] Add visual marker for the last placed stone on the board in `src/components/Board/Board.tsx`
-- [ ] T034 [P] Implement board size selection (9x9, 13x13, 19x19) in `src/App.tsx`
-- [ ] T035 [P] Apply final CSS styling for stones, board, and layout in `src/assets/main.css`
-- [ ] T036 Run final verification against `quickstart.md` scenarios
+- [X] T033 [P] Add visual marker for the last placed stone on the board in `src/components/Board/Board.tsx`
+- [X] T034 [P] Implement board size selection (9x9, 13x13, 19x19) in `src/App.tsx`
+- [X] T035 [P] Apply final CSS styling for stones, board, and layout in `src/assets/main.css`
+- [X] T036 Run final verification against `quickstart.md` scenarios
 
 ---
 
