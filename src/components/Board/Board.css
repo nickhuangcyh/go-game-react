@@ -1,0 +1,33 @@
+.board {
+  user-select: none;
+}
+
+.intersection:hover {
+  background-color: rgba(0, 0, 0, 0.05) !important;
+}
+
+.stone {
+  transition: all 0.2s ease-in-out;
+}
+
+.stone-black {
+  background: radial-gradient(circle at 30% 30%, #444, #000);
+}
+
+.stone-white {
+  background: radial-gradient(circle at 30% 30%, #fff, #ddd);
+}
+
+.last-move::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #ff0000;
+  opacity: 0.8;
+  z-index: 2;
+}
