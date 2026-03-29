@@ -50,7 +50,7 @@ description: "Task list for Territory Estimation feature implementation"
 
 ### Implementation for User Story 1
 
-- [ ] T006 [US1] Update `src/hooks/useGame.ts` to manage `isEstimating` toggle state and `toggleTerritory` callback
+- [ ] T006 [US1] Update `src/hooks/useGame.ts` to manage `isEstimating` in React state and provide `toggleTerritory` callback
 - [ ] T007 [US1] Update `src/components/Controls/Controls.tsx` to include "Toggle Territory" button
 - [ ] T008 [US1] Update `src/components/Board/Board.tsx` to accept `territoryMap` and `isEstimating` props
 - [ ] T009 [US1] Implement basic marker rendering logic in `src/components/Board/Board.tsx` using `territoryMap`
@@ -94,7 +94,7 @@ description: "Task list for Territory Estimation feature implementation"
 **Purpose**: Improvements that affect multiple user stories
 
 - [ ] T014 [P] Update `README.md` with Territory Estimation usage instructions
-- [ ] T015 Run all tests and verify SC-001, SC-002, SC-003 criteria
+- [ ] T015 Run all tests and verify SC-001, SC-002, and SC-003 criteria (including manual verification of marker visibility on both dark and light board themes)
 - [ ] T016 Final code cleanup and documentation update in `specs/002-territory-estimation/research.md`
 
 ---

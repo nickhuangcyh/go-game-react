@@ -69,7 +69,7 @@ As a Go player, I want the markers to look professional (black squares for Black
 - **FR-005**: If a group of empty intersections is reachable from BOTH Black and White stones, they MUST be considered neutral (Dame).
 - **FR-006**: System MUST update the territory estimation display immediately when a new stone is placed or a move is undone, if the toggle is ON.
 - **FR-007**: Territory markers MUST be visually distinct from Go stones (small squares vs large circles).
-- **FR-008**: The toggle state MUST be persisted during the session (not lost on re-renders, unless the game is restarted).
+- **FR-008**: The toggle state MUST be persisted in React state (maintained across re-renders within the current page session, but may reset on page reload or game restart).
 
 ### Key Entities *(include if feature involves data)*
 
