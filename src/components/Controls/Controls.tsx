@@ -5,6 +5,8 @@ interface ControlsProps {
   canUndo: boolean
   onRestart: () => void
   onPass: () => void
+  onToggleTerritory: () => void
+  isEstimating: boolean
   isFinished: boolean
 }
 
@@ -13,6 +15,8 @@ export const Controls: React.FC<ControlsProps> = ({
   canUndo,
   onRestart,
   onPass,
+  onToggleTerritory,
+  isEstimating,
   isFinished,
 }) => {
   return (
@@ -24,6 +28,20 @@ export const Controls: React.FC<ControlsProps> = ({
         marginTop: '20px',
       }}
     >
+      <button
+        onClick={onToggleTerritory}
+        style={{
+          padding: '10px 20px',
+          fontSize: '16px',
+          cursor: 'pointer',
+          backgroundColor: isEstimating ? '#007bff' : '#6c757d',
+          color: 'white',
+          border: 'none',
+          borderRadius: '4px',
+        }}
+      >
+        {isEstimating ? 'Hide Estimation' : 'Estimate Territory'}
+      </button>
       <button
         onClick={onPass}
         disabled={isFinished}

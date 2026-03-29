@@ -1,6 +1,6 @@
 import React from 'react'
-import { StoneColor } from '../../core/types/index'
-import type { Board as BoardType, Point } from '../../core/types/index'
+import { StoneColor, TerritoryOwner } from '../../core/types/index'
+import type { Board as BoardType, Point, TerritoryMap } from '../../core/types/index'
 import { getPoint } from '../../core/board/board'
 import './Board.css'
 
@@ -8,9 +8,17 @@ interface BoardProps {
   board: BoardType
   onPlaceStone: (pos: Point) => void
   lastMove: number | null
+  territoryMap?: TerritoryMap | null
+  isEstimating?: boolean
 }
 
-export const Board: React.FC<BoardProps> = ({ board, onPlaceStone, lastMove }) => {
+export const Board: React.FC<BoardProps> = ({
+  board,
+  onPlaceStone,
+  lastMove,
+  territoryMap,
+  isEstimating,
+}) => {
   // 計算半個格子的百分比，用於將網格線對齊按鈕中心
   const halfCellPercent = 100 / (2 * board.size)
 
@@ -103,6 +111,15 @@ export const Board: React.FC<BoardProps> = ({ board, onPlaceStone, lastMove }) =
                 }}
               />
             )}
+            {/* 領地估算標記 */}
+            {isEstimating &&
+              territoryMap &&
+              territoryMap[index] !== TerritoryOwner.NONE &&
+              color === StoneColor.NONE && (
+                <div
+                  className={`territory-marker territory-${territoryMap[index].toLowerCase()}`}
+                />
+              )}
             {/* 最後一手標記 */}
             {index === lastMove && (
               <div

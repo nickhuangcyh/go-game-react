@@ -31,3 +31,32 @@
   opacity: 0.8;
   z-index: 2;
 }
+
+.territory-marker {
+  width: 30%;
+  height: 30%;
+  border-radius: 2px;
+  opacity: 0.8;
+  transition: all 0.3s ease-in-out;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.territory-black {
+  background-color: #000;
+}
+
+.territory-white {
+  background-color: #fff;
+  border: 1px solid #333;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  to {
+    opacity: 0.8;
+    transform: scale(1);
+  }
+}
