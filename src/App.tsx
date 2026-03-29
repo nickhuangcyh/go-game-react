@@ -7,7 +7,16 @@ import './App.css'
 
 function App() {
   const [boardSize, setBoardSize] = useState(19)
-  const { gameState, handlePlaceStone, restartGame, undoMove, passTurn } = useGame(boardSize)
+  const {
+    gameState,
+    handlePlaceStone,
+    restartGame,
+    undoMove,
+    passTurn,
+    isEstimating,
+    territoryMap,
+    toggleTerritory,
+  } = useGame(boardSize)
 
   const changeBoardSize = (size: number) => {
     setBoardSize(size)
@@ -58,6 +67,8 @@ function App() {
         board={gameState.board}
         onPlaceStone={handlePlaceStone}
         lastMove={gameState.lastMove}
+        territoryMap={territoryMap}
+        isEstimating={isEstimating}
       />
 
       <Controls
@@ -65,6 +76,8 @@ function App() {
         canUndo={gameState.history.length > 0}
         onRestart={restartGame}
         onPass={passTurn}
+        onToggleTerritory={toggleTerritory}
+        isEstimating={isEstimating}
         isFinished={gameState.status === 'FINISHED'}
       />
     </div>

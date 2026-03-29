@@ -6,6 +6,16 @@ export const StoneColor = {
 
 export type StoneColor = (typeof StoneColor)[keyof typeof StoneColor]
 
+export const TerritoryOwner = {
+  BLACK: 'BLACK',
+  WHITE: 'WHITE',
+  NONE: 'NONE',
+} as const
+
+export type TerritoryOwner = (typeof TerritoryOwner)[keyof typeof TerritoryOwner]
+
+export type TerritoryMap = TerritoryOwner[]
+
 export interface Point {
   x: number
   y: number
