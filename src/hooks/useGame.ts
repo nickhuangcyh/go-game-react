@@ -1,18 +1,35 @@
-import { useState, useCallback, useEffect } from 'react'
+import { useState, useCallback, useMemo } from 'react'
 import {
   createNewGame,
   placeStone,
   undoMove as undoEngineMove,
   passTurn as passEngineTurn,
 } from '../core/engine'
+import { calculateTerritory } from '../core/rules/territory'
 import type { Point, GameState } from '../core/types/index'
 
 export const useGame = (size: number = 19) => {
   const [gameState, setGameState] = useState<GameState>(() => createNewGame(size))
+  const [isEstimating, setIsEstimating] = useState(false)
 
-  useEffect(() => {
+  // Adjust state if size changes (react pattern for resetting state on prop change)
+  const [prevSize, setPrevSize] = useState(size)
+  if (size !== prevSize) {
+    setPrevSize(size)
     setGameState(createNewGame(size))
-  }, [size])
+    setIsEstimating(false)
+  }
+
+  const territoryMap = useMemo(() => {
+    if (isEstimating) {
+      return calculateTerritory(gameState.board)
+    }
+    return null
+  }, [isEstimating, gameState.board])
+
+  const toggleTerritory = useCallback(() => {
+    setIsEstimating((prev) => !prev)
+  }, [])
 
   const handlePlaceStone = useCallback(
     (pos: Point) => {
@@ -44,5 +61,8 @@ export const useGame = (size: number = 19) => {
     undoMove,
     passTurn,
     restartGame,
+    isEstimating,
+    territoryMap,
+    toggleTerritory,
   }
 }
