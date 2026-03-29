@@ -1,7 +1,44 @@
-# React + TypeScript + Vite
+# Go Game React
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A Go game implementation using React and TypeScript.
 
+## Features
+
+### Territory Estimation
+
+- **Toggleable Overlay**: Use the "Estimate Territory" button to visualize strictly enclosed areas.
+- **Dynamic Updates**: Territory estimations update automatically as you place stones.
+- **Visual Distinction**: Black and white square markers represent estimated territory for each player.
+- **Performance**: High-performance flood fill algorithm ensures smooth updates on all board sizes (9x9, 13x13, 19x19).
+
+## Development
+
+### Prerequisites
+
+- Node.js (v18+)
+- npm
+
+### Installation
+
+```bash
+npm install
+```
+
+### Running the App
+
+```bash
+npm run dev
+```
+
+### Running Tests
+
+```bash
+npm test
+```
+
+## React + TypeScript + Vite
+
+...
 Currently, two official plugins are available:
 
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)

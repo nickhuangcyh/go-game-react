@@ -23,8 +23,8 @@ description: "Task list for Territory Estimation feature implementation"
 
 **Purpose**: Project initialization and basic structure
 
-- [ ] T001 [P] Update `src/core/types/index.ts` with `TerritoryOwner` and `TerritoryMap` types
-- [ ] T002 [P] Create `tests/unit/territory.test.ts` with basic test structure
+- [X] T001 [P] Update `src/core/types/index.ts` with `TerritoryOwner` and `TerritoryMap` types
+- [X] T002 [P] Create `tests/unit/territory.test.ts` with basic test structure
 
 ---
 
@@ -34,9 +34,9 @@ description: "Task list for Territory Estimation feature implementation"
 
 **⚠️ CRITICAL**: No user story work can begin until this phase is complete
 
-- [ ] T003 [P] Implement `calculateTerritory` pure function in `src/core/rules/territory.ts` (Flood Fill algorithm)
-- [ ] T004 [P] Add comprehensive unit tests for `calculateTerritory` in `tests/unit/territory.test.ts` (Empty board, small board, complex enclosures)
-- [ ] T005 [P] Verify `calculateTerritory` performance (< 50ms for 19x19) in `tests/unit/territory.test.ts` (SC-001)
+- [X] T003 [P] Implement `calculateTerritory` pure function in `src/core/rules/territory.ts` (Flood Fill algorithm)
+- [X] T004 [P] Add comprehensive unit tests for `calculateTerritory` in `tests/unit/territory.test.ts` (Empty board, small board, complex enclosures)
+- [X] T005 [P] Verify `calculateTerritory` performance (< 50ms for 19x19) in `tests/unit/territory.test.ts` (SC-001)
 
 **Checkpoint**: Foundation ready - user story implementation can now begin
 
@@ -50,10 +50,10 @@ description: "Task list for Territory Estimation feature implementation"
 
 ### Implementation for User Story 1
 
-- [ ] T006 [US1] Update `src/hooks/useGame.ts` to manage `isEstimating` in React state and provide `toggleTerritory` callback
-- [ ] T007 [US1] Update `src/components/Controls/Controls.tsx` to include "Toggle Territory" button
-- [ ] T008 [US1] Update `src/components/Board/Board.tsx` to accept `territoryMap` and `isEstimating` props
-- [ ] T009 [US1] Implement basic marker rendering logic in `src/components/Board/Board.tsx` using `territoryMap`
+- [X] T006 [US1] Update `src/hooks/useGame.ts` to manage `isEstimating` in React state and provide `toggleTerritory` callback
+- [X] T007 [US1] Update `src/components/Controls/Controls.tsx` to include "Toggle Territory" button
+- [X] T008 [US1] Update `src/components/Board/Board.tsx` to accept `territoryMap` and `isEstimating` props
+- [X] T009 [US1] Implement basic marker rendering logic in `src/components/Board/Board.tsx` using `territoryMap`
 
 **Checkpoint**: At this point, User Story 1 is functional and testable independently.
 
@@ -67,8 +67,8 @@ description: "Task list for Territory Estimation feature implementation"
 
 ### Implementation for User Story 2
 
-- [ ] T010 [US2] Update `src/hooks/useGame.ts` to trigger `calculateTerritory` whenever `gameState` changes if `isEstimating` is true
-- [ ] T011 [US2] Add integration test in `tests/integration/Board.test.tsx` (or new file) to verify markers update after a move
+- [X] T010 [US2] Update `src/hooks/useGame.ts` to trigger `calculateTerritory` whenever `gameState` changes if `isEstimating` is true
+- [X] T011 [US2] Add integration test in `tests/integration/Board.test.tsx` (or new file) to verify markers update after a move
 
 **Checkpoint**: At this point, User Stories 1 and 2 work together seamlessly.
 
@@ -82,8 +82,8 @@ description: "Task list for Territory Estimation feature implementation"
 
 ### Implementation for User Story 3
 
-- [ ] T012 [P] [US3] Define CSS styles for black and white territory markers in `src/components/Board/Board.css`
-- [ ] T013 [US3] Update `src/components/Board/Board.tsx` to render professional-style square markers for Black and White territory
+- [X] T012 [P] [US3] Define CSS styles for black and white territory markers in `src/components/Board/Board.css`
+- [X] T013 [US3] Update `src/components/Board/Board.tsx` to render professional-style square markers for Black and White territory
 
 **Checkpoint**: All user stories are now independently functional and visually complete.
 
@@ -93,9 +93,9 @@ description: "Task list for Territory Estimation feature implementation"
 
 **Purpose**: Improvements that affect multiple user stories
 
-- [ ] T014 [P] Update `README.md` with Territory Estimation usage instructions
-- [ ] T015 Run all tests and verify SC-001, SC-002, and SC-003 criteria (including manual verification of marker visibility on both dark and light board themes)
-- [ ] T016 Final code cleanup and documentation update in `specs/002-territory-estimation/research.md`
+- [X] T014 [P] Update `README.md` with Territory Estimation usage instructions
+- [X] T015 Run all tests and verify SC-001, SC-002, and SC-003 criteria (including manual verification of marker visibility on both dark and light board themes)
+- [X] T016 Final code cleanup and documentation update in `specs/002-territory-estimation/research.md`
 
 ---
 
